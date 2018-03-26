@@ -57,8 +57,15 @@ List.prototype.drawItem = function(item, active) {
     a = document.createElement('a');
 
   if (active) li.className += ' active';
+  // if the item has a classes array add that to the classlist
+  // if (item.classes) li.className += ' ' + item.classes.join(' ');
+  if (item.original.icon) {
+    var img = document.createElement('img');
+    img.src = item.original.icon;
+    a.appendChild(img);
+  }
 
-  a.innerHTML = item.string;
+  a.innerHTML += item.string;
 
   li.appendChild(a);
   this.element.appendChild(li);
