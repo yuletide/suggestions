@@ -58,7 +58,7 @@ List.prototype.drawItem = function(item, active) {
 
   if (active) li.className += ' active';
   // if the item has a classes array add that to the classlist
-  console.log('drawitem',item);
+  // console.log('drawitem',item);
   if (item.original.properties.classes) li.className += ' ' + item.original.properties.classes.join(' ');
   var img = document.createElement('img');
   if (item.original.icon) {
