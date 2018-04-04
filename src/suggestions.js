@@ -64,8 +64,12 @@ Suggestions.prototype.handleKeyUp = function(keyCode) {
 Suggestions.prototype.handleKeyDown = function(e) {
   switch (e.keyCode) {
     case 13: // ENTER
-    case 9:  // TAB
       e.preventDefault();
+      if (!this.list.isEmpty()) {
+        this.value(this.list.items[this.list.active].original);
+        this.list.hide();
+      }
+    case 9:  // TAB -- why would we ever want this to happen??
       if (!this.list.isEmpty()) {
         this.value(this.list.items[this.list.active].original);
         this.list.hide();
